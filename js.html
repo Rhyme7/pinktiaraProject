@@ -1,0 +1,112 @@
+<script>
+  function alertMsg(msg){
+    alert(msg);
+  }
+
+  //google warning none
+  function dispNoneWarning()
+  {
+    document.getElementById("warning").style.display="none";
+  }
+
+  function dispHiddenWarning()
+  {
+    document.getElementById("warning").style.visibility="hidden";
+  }
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://use.fontawesome.com/7bcbed1321.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/js/bootstrap-select.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.8/validator.min.js"></script>
+
+<script>
+function sendData() {
+
+    try {
+
+        processing(true);
+
+        var elemntIFrame = window.parent.document.getElementById('userHtmlFrame');
+        elemntIFrame.setAttribute('scrolling', 'no');
+        elemntIFrame.setAttribute('frameborder', '0');
+
+        var postData={
+            "parameters" : {     
+            "customerId": document.getElementById('lineUserId').value,
+            "lastName":document.getElementById('lastName').value,
+            "firstName": document.getElementById('firstName').value,
+            "lastNameKana": document.getElementById('lastNameKana').value,
+            "firstNameKana": document.getElementById('firstNameKana').value,
+            "phone": document.getElementById('phone').value,
+            "mail": document.getElementById('mail').value
+            }
+        };
+        
+        google.script.run
+            .withSuccessHandler(function(result) {
+                if (result.data) {
+                   toastr.info('送信完了しました。\n画面を閉じてアプリをご利用くださいませ。');
+                   processing(false);
+                   allClear();
+                } else {
+                   toastr.error('送信失敗しました。\nお手数ですが、再度登録くださいませ。');
+                   processing(false);
+                }
+            })
+            .withFailureHandler(function(result) {
+                processing(false);
+                toastr.error('データ送信に失敗しました。\nお手数ですが、管理者までお問い合わせください。', result);
+            })
+            .register(postData);
+
+    } catch (e) {
+        processing(false);
+        toastr.error(e);
+    }
+
+}
+
+//画面初期化
+function allClear(){
+  document.getElementById('lastName').value='';
+  document.getElementById('firstName').value='';
+  document.getElementById('lastNameKana').value='';
+  document.getElementById('firstNameKana').value='';
+  document.getElementById('phone').value='';
+  document.getElementById('mail').value='';
+}
+  
+// 処理中アイコン表示・非表示
+function processing(processing) {
+    if (processing) {
+        document.getElementById('processing').style.visibility = "visible";
+        document.getElementById('send_button').setAttribute("disabled", true);
+    } else {
+        document.getElementById('processing').style.visibility = "hidden";
+        document.getElementById('send_button').removeAttribute("disabled");
+    }
+}
+
+// ロード完了後の処理
+$(function() {
+    // トースト通知の位置指定
+    toastr.options.positionClass = "toast-bottom-center";
+    // バリデーションチェック有効化
+    $('#myForm').validator();
+    // 処理中アイコン非表示
+    processing(false);
+
+    // submit時のイベント登録
+    $('#myForm').validator().on('submit', function(e) {
+        if (document.getElementById('send_button').className.indexOf("disabled") != -1) {
+            // submit用のボタンのスタイルにdisabledが設定されていればバリデーションエラー
+        } else {
+            // バリデーションエラーでなければ送信
+            sendData();
+        }
+    })
+});
+</script>
