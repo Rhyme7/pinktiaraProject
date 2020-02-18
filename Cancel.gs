@@ -2,7 +2,8 @@
 function getCancelList(customerId,customerName) {
 
   var result=getReservedList(customerId);
-
+  result.sort(function(a,b){return(new Date(a.reserveDate+" "+a.reserveFromTime) - new Date(b.reserveDate+" "+b.reserveFromTime));});
+  
   if(result.length===0){
     return {
       "type": "text",
