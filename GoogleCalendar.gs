@@ -1,9 +1,9 @@
 //Googleカレンダへ登録
-function createEvent(customerName, date, fromtime, totime) {
+function createEvent(customerName, ledger) {
   var calendar = CalendarApp.getDefaultCalendar();
-  var title = customerName+"様　ご予約";
-  var startTime = new Date(date+" "+fromtime);
-  var endTime = new Date(date+" "+totime);
+  var title = Utilities.formatString("%s様（%s : %s : %s分 : %s円）",customerName,ledger.selectMenu,ledger.selectCourse,ledger.duration,ledger.amount);
+  var startTime = new Date(ledger.reserveDate+" "+ledger.reserveFromTime);
+  var endTime = new Date(ledger.reserveDate+" "+ledger.reserveToTime);
   
   var evtCal=calendar.createEvent(title, startTime, endTime);
   var evtId = evtCal.getId();
@@ -32,7 +32,18 @@ function deleteEvent(evtId) {
 
 //createEventTest
 function createEventTest(){
-  var evtId=createEvent("大脇 剣吾","2020/02/14","10:00","11:00")
+  var ledger=getLedgerObject();
+
+  ledger.customerId="test"
+  ledger.date=Moment.moment("2020/02/17 2:34:50").format("YYYY/MM/DD HH:mm:ss");
+  ledger.reserveDate=Moment.moment("2020/02/21").format("YYYY/MM/DD");
+  ledger.reserveFromTime=Moment.moment("10:00").format("HH:mm");
+  ledger.reserveToTime=Moment.moment("11:00").format("HH:mm");
+  ledger.selectMenu="M2";
+  ledger.selectCourse="P1-2";
+  ledger.status="予約済み";
+  
+  var evtId=createEvent("大脇 剣吾",ledger)
   Logger.log("イベントID：%s", evtId);
 }
 

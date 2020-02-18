@@ -1,3 +1,10 @@
+
+// 曜日取得
+function getWeek(ymd){
+  Moment.moment.lang('ja', {weekdays: ["日","月","火","水","木","金","土"]});
+  return Moment.moment(ymd).format('dddd');
+}
+
 //前方一致
 function startsWith(target, pattern) {
   return target.indexOf(pattern) === 0; 
