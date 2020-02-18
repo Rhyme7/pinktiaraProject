@@ -1,6 +1,5 @@
 //予約最終確認
-function getConfirmReserved(carte) {
-  var ledger=carte.ledger;
+function getConfirmReserved(ledger) {
  
   return {
   "type": "template",
@@ -27,8 +26,7 @@ function getConfirmReserved(carte) {
 
 
 //キャンセル最終確認
-function getConfirmCancel(carte) {
-  var ledger=carte.ledger;
+function getConfirmCancel(ledger) {
   
   return {
   "type": "template",

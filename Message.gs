@@ -47,6 +47,7 @@ function hasMessage(msg) {
   
 }
 
+//正常メッセージ
 var MSG_REGIST_REQUEST="アプリを利用するにあたり、下記URLから初回登録が必要となります。\n1分ほどで完了する内容となっていますのでご登録くださいませ。\nhttps://script.google.com/macros/s/%s/exec?uid=%s";
 
 var MSG_RESERVE_RESULT_NOTHING="%sさま\n現在ご予約は頂いておりません。\n\n";
@@ -54,4 +55,9 @@ var MSG_RESERVE_RESULT_HEADER="%sさま\n以下%s件のご予約を頂いてお�
 var MSG_RESERVE_RESULT_DETAIL="▶%s件目\n【メニュー】%s\n【コース】%s\n【日時】%s %s ～ %s\n\n";
 var MSG_RESERVE_RESULT_FOOTER="\n※時間変更はできません。\n時間変更をご希望の場合は、お手数おかけしますが、一度キャンセル頂いた上で、新たに予約登録をお願いします。\n\nキャンセルは下の「pink tiaraメニュー」より可能です。\n\npink tiara\n\n";
 
+var MSG_RESERVE_INFO="【メニュー】%s\n【コース】%s\n【日時】%s %s ～ %s\n\n";
+
+var MSG_RESERVE_ABLE_NOTHING="選択した日付の予約は満席でございます。\n別の日付を選択くださいませ。\n";
+
+//エラーメッセージ
 var MSG_ERROR_REGIST="初回登録に失敗しました。\nお手数ですが管理者までお問い合わせください。\n ";

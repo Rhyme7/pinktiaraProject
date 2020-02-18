@@ -23,6 +23,8 @@ function getLedgerObject() {
    "reserveToTime": "", //予約時間To
    "selectMenu": "", //選択メニュー
    "selectCourse": "", //選択コース
+   "duration": "", //時間
+   "amount": "", //料金
    "status": "", //ステータス
    "googleCalendarId": "" //GoogleカレンダID
  };
@@ -74,4 +76,32 @@ function getCustomerObject() {
  };
 }
 
+//営業時間オブジェクト
+function getBusinessTimeObject() {
+  return {
+    "from":"",
+    "to":""
+  };
+}
 
+//コースオブジェクト
+function getCourseObject() {
+  return {
+    "menuCd":"",
+    "courseCd":"",
+    "courseName":"",
+    "discription":"",
+    "amount":"",
+    "duration":""
+  };
+}
+
+
+//メニューオブジェクト
+function getMenuObject() {
+  return {
+    "menuCd":"",
+    "menuName":"",
+    "discription":""
+  };
+}

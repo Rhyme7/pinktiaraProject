@@ -51,17 +51,17 @@ function Controller(message, data, customer) {
     
     switch (message) {
       case MSG_CMD30_CHECK_AVAILABILITY:
-        returnmessage = getSelectDateDialog();
         ledger.selectCourse=data.course;
+        returnmessage = getSelectDateDialog();
         break
       case MSG_CMD30_SELECTED_DATE:
-        returnmessage = getAvailabilityList();
         ledger.reserveDate=data.day;
+        returnmessage = getAvailabilityList(ledger);
         break
       case MSG_CMD30_SELECTED_TIME:
         ledger.reserveFromTime=data.from;
         ledger.reserveToTime=data.to;
-        returnmessage = getConfirmReserved(carte);
+        returnmessage = getConfirmReserved(ledger);
         break
       case MSG_CMD30_CONFIRM_LAST:
         if(data.yn === "y"){
@@ -77,8 +77,10 @@ function Controller(message, data, customer) {
           ledger.ledgerNo=ledgerno;
           carte.resultLastConfirm=true;
           
+          var registed=readLedgerWithNo(ledgerno);
+          
           //カレンダ登録
-          var evtId=createEvent(cName,ledger.reserveDate,ledger.reserveFromTime,ledger.reserveToTime);
+          var evtId=createEvent(cName,registed);
           ledger.googleCalendarId=evtId;
           //台帳更新
           UpdateLedger(ledger);
@@ -122,7 +124,7 @@ function Controller(message, data, customer) {
         carteData.ledger.status="キャンセル";
         UpdateCarte(carteData);
         
-        returnmessage = getConfirmCancel(carteData);
+        returnmessage = getConfirmCancel(ledger);
         break
         
       case MSG_CMD50_CONFIRM_LAST:
