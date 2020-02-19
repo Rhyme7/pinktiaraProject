@@ -40,6 +40,7 @@ function addButton() {
       "data": ""
     },
     "margin": "none",
+    "color": "#EEABE8",
     "style": "primary"
   };
 }

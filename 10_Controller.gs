@@ -21,13 +21,13 @@ function Controller(message, data, customer) {
         returnmessage = getTopMenu();
         return returnmessage;
       case MSG_CMD20_EXT_MENU:
-        returnmessage = getExteMenuDetail();
+        returnmessage = getMenuDetail("M1","まつ毛エクステメニュー","https://www.dollylash.co.jp/wp/wp-content/themes/dollylash201711/img/ph_25.jpg");
         break
       case MSG_CMD20_PRM_MENU:
-        returnmessage = getPermMenuDetail();
+        returnmessage = getMenuDetail("M2","まつ毛パーマメニュー","https://www.dollylash.co.jp/wp/wp-content/themes/dollylash201711/img/ph_26.jpg");
         break
       case MSG_CMD20_OTR_MENU:
-        returnmessage = getOtherMenuDetail();
+        returnmessage = getMenuDetail("M3","おすすめメニュー","https://www.dollylash.co.jp/wp/wp-content/themes/dollylash201711/img/ph_9.jpg");
         break
       default:
         returnmessage = {

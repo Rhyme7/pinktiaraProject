@@ -90,9 +90,10 @@ function getCourseObject() {
     "menuCd":"",
     "courseCd":"",
     "courseName":"",
-    "discription":"",
+    "description":"",
     "amount":"",
-    "duration":""
+    "duration":"",
+    "display":0
   };
 }
 
@@ -102,6 +103,6 @@ function getMenuObject() {
   return {
     "menuCd":"",
     "menuName":"",
-    "discription":""
+    "description":""
   };
 }

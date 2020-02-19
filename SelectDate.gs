@@ -50,6 +50,7 @@ function getSelectDateDialog() {
             "min": "2020-01-01"
           },
           "height": "sm",
+          "color": "#EEABE8",
           "style": "primary"
         }
       ]

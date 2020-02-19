@@ -7,14 +7,22 @@ function getTopMenu() {
   "contents": {
     "type": "carousel",
     "contents": [
-      //エクステメニュー
-      getExteMenuTop(),
+      //おすすめメニュー
+      getOtherMenuTop(),
       //パーマメニュー
       getPermMenuTop(),
-      //おすすめメニュー
-      getOtherMenuTop()
+      //エクステメニュー
+      getExteMenuTop()
     ]
   }
 };
 
+}
+
+
+
+/////テストコード
+function getTopMenuTest(){
+  var ret= getTopMenu();
+  Logger.log(ret);
 }

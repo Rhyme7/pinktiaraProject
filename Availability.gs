@@ -63,10 +63,10 @@ function getAvailabilityList(ledger) {
     };    
   }
   
-  var main=body();
+  var main=bodyForAvailable();
   availabilityList.forEach(function( item ) {
-    var button=addButton();
-    var separator=addSeparator();
+    var button=addButtonForAvailable();
+    var separator=addSeparatorForAvailable();
     
     button.action.label = Utilities.formatString("%s～%s",item.from,item.to);
     var data={
@@ -84,7 +84,7 @@ function getAvailabilityList(ledger) {
   return main;
 }
 
-function addButton() {
+function addButtonForAvailable() {
   return {
     "type": "button",
     "action": {
@@ -92,17 +92,18 @@ function addButton() {
       "label": "",
       "data": ""
     },
+    "color": "#EEABE8",
     "style": "primary"
   };
 }
 
-function addSeparator() {
+function addSeparatorForAvailable() {
   return {
     "type": "separator"
   };
 }
 
-function body() {
+function bodyForAvailable() {
   return {
   "type": "flex",
   "altText": "Flex Message",

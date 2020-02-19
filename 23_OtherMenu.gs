@@ -1,17 +1,13 @@
-function getExteMenuTop(){
-  return {
+//おすすめメニュートップ
+function getOtherMenuTop() {
+ return {
     "type": "bubble",
     "hero": {
       "type": "image",
-      "url": "https://www.dollylash.co.jp/wp/wp-content/themes/dollylash201711/img/ph_25.jpg",
+      "url": "https://www.dollylash.co.jp/wp/wp-content/themes/dollylash201711/img/ph_9.jpg",
       "size": "full",
       "aspectRatio": "20:13",
-      "aspectMode": "cover",
-      "action": {
-        "type": "uri",
-        "label": "Action",
-        "uri": "https://linecorp.com"
-      }
+      "aspectMode": "cover"
     },
     "body": {
       "type": "box",
@@ -20,7 +16,7 @@ function getExteMenuTop(){
       "contents": [
         {
           "type": "text",
-          "text": "まつげエクステメニュー",
+          "text": "おすすめメニュー",
           "size": "md",
           "align": "center",
           "gravity": "center",
@@ -33,21 +29,22 @@ function getExteMenuTop(){
           "contents": [
             {
               "type": "text",
-              "text": "①エクステのみ",
-              "flex": 2,
+              "text": "①パーマ＋白髪染め",
+              "flex": 3,
               "align": "start",
               "weight": "bold",
               "color": "#010101"
             },
             {
               "type": "text",
-              "text": "70分",
+              "text": "120分",
               "margin": "sm",
               "weight": "bold"
             },
             {
               "type": "text",
-              "text": "4,400円",
+              "text": "3,960円",
+              "flex": 0,
               "size": "sm",
               "align": "end",
               "color": "#AAAAAA"
@@ -67,21 +64,22 @@ function getExteMenuTop(){
           "contents": [
             {
               "type": "text",
-              "text": "②オフ込み",
-              "flex": 2,
+              "text": "②白髪染めのみ",
+              "flex": 3,
               "align": "start",
               "weight": "bold",
               "color": "#010101"
             },
             {
               "type": "text",
-              "text": "90分",
+              "text": "60分",
               "margin": "sm",
               "weight": "bold"
             },
             {
               "type": "text",
-              "text": "5,500円",
+              "text": "2,200円",
+              "flex": 0,
               "size": "sm",
               "align": "end",
               "color": "#AAAAAA"
@@ -110,7 +108,7 @@ function getExteMenuTop(){
           "action": {
             "type": "postback",
             "label": "予約へ進む",
-            "data": "{\"message\":\"20_エクステメニュー詳細\",\"menu\":\"M1\"}"
+            "data": "{\"message\":\"20_おすすめメニュー詳細\",\"menu\":\"M3\"}"
           },
           "color": "#EEABE8",
           "style": "primary"
@@ -120,10 +118,11 @@ function getExteMenuTop(){
   };
 }
 
-//
-//
-/////////テストコード
-//function getExteMenuTopTest(){
-//  var ret = getExteMenuTop("M1","まつ毛エクステメニュー");
-//  Logger.log(JSON.stringify(ret));
-//}
+
+
+
+///////テストコード
+function getOtherMenuTopTest(){
+  var ret = getOtherMenuTop();
+  Logger.log(JSON.stringify(ret));
+}

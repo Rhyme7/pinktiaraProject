@@ -32,14 +32,14 @@ function WriteLedger(ledger){
     sheet.getRange(lastRow, 4).setValue(ledger.reserveDate);
     sheet.getRange(lastRow, 5).setValue(ledger.reserveFromTime);
     sheet.getRange(lastRow, 6).setValue(ledger.reserveToTime);
-    sheet.getRange(lastRow, 7).setFormula(Utilities.formatString("VLOOKUP(\"%s\",'メニュー'!$A$2:$B$4,2,FALSE)",ledger.selectMenu));
-    sheet.getRange(lastRow, 8).setFormula(Utilities.formatString("VLOOKUP(\"%s\",'コース'!$B$2:$F$13,2,FALSE)",ledger.selectCourse));
+    sheet.getRange(lastRow, 7).setFormula(Utilities.formatString("VLOOKUP(\"%s\",'メニュー'!$A$2:$B$10,2,FALSE)",ledger.selectMenu));
+    sheet.getRange(lastRow, 8).setFormula(Utilities.formatString("VLOOKUP(\"%s\",'コース'!$B$2:$F$50,2,FALSE)",ledger.selectCourse));
     sheet.getRange(lastRow, 9).setValue(ledger.status);
     sheet.getRange(lastRow, 11).setValue(Moment.moment().format("YYYY/MM/DD HH:mm:ss"));
     sheet.getRange(lastRow, 12).setValue(ledger.customerId);
     //数式書き込み
-    sheet.getRange(lastRow, 15).setFormula(Utilities.formatString("VLOOKUP(\"%s\",'コース'!$B$2:$F$13,5,FALSE)",ledger.selectCourse)); //時間
-    sheet.getRange(lastRow, 16).setFormula(Utilities.formatString("VLOOKUP(\"%s\",'コース'!$B$2:$F$13,4,FALSE)",ledger.selectCourse)); //料金
+    sheet.getRange(lastRow, 15).setFormula(Utilities.formatString("VLOOKUP(\"%s\",'コース'!$B$2:$F$50,5,FALSE)",ledger.selectCourse)); //時間
+    sheet.getRange(lastRow, 16).setFormula(Utilities.formatString("VLOOKUP(\"%s\",'コース'!$B$2:$F$50,4,FALSE)",ledger.selectCourse)); //料金
   }
   return createNo;
 }
