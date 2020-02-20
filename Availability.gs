@@ -116,12 +116,7 @@ function bodyForAvailable() {
       "contents": [
         {
           "type": "text",
-          "text": "予約可能な時間帯",
-          "align": "center"
-        },
-        {
-          "type": "text",
-          "text": "※時間帯を選択してください",
+          "text": "【Step2】時間帯を選択下さい♪",
           "align": "center"
         },
         {

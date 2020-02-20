@@ -11,7 +11,7 @@ function getSelectDateDialog() {
       "contents": [
         {
           "type": "text",
-          "text": "空き状況を確認します",
+          "text": "【Step1】空き状況を確認します♪",
           "align": "center"
         }
       ]
@@ -29,7 +29,7 @@ function getSelectDateDialog() {
       "contents": [
         {
           "type": "text",
-          "text": "日付を選択してください",
+          "text": "下のボタンをクリックください❤",
           "align": "center",
           "weight": "bold"
         }
