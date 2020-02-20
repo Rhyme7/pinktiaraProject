@@ -50,7 +50,7 @@ var MSG_REGIST_REQUEST="アプリを利用するにあたり、下記URLから�
 var MSG_RESERVE_RESULT_NOTHING="%sさま❤\n\n現在ご予約は頂いておりません🐾\n\n";
 var MSG_RESERVE_RESULT_HEADER="%sさま❤\n\n以下%s件のご予約を頂いております。\n\n";
 var MSG_RESERVE_RESULT_DETAIL="▶%s件目\n【メニュー】%s\n【コース】%s\n【日時】%s %s ～ %s\n\n";
-var MSG_RESERVE_RESULT_FOOTER="\n(注意事項)\n時間変更はできません。\n時間変更をご希望の場合は、お手数ですが一度キャンセル頂いた上で再度予約ください m(_ _)m。\n\nキャンセルは下の「pink tiaraメニュー」をタップください♪。\n\npink tiara❤\n\n";
+var MSG_RESERVE_RESULT_FOOTER="\n(注意事項)\n時間変更はできません。\n時間変更をご希望の場合は、お手数ですが一度キャンセル頂いた上で再度予約ください m(_ _)m\n\nキャンセルは下の「pink tiaraメニュー」をタップください♪\n\npink tiara❤\n\n";
 
 var MSG_RESERVE_INFO="【メニュー】%s\n【コース】%s\n【日時】%s %s ～ %s\n\n";
 
