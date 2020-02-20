@@ -32,7 +32,7 @@ function WriteLedger(ledger){
     sheet.getRange(lastRow, 4).setValue(ledger.reserveDate);
     sheet.getRange(lastRow, 5).setValue(ledger.reserveFromTime);
     sheet.getRange(lastRow, 6).setValue(ledger.reserveToTime);
-    sheet.getRange(lastRow, 7).setFormula(Utilities.formatString("VLOOKUP(\"%s\",'メニュー'!$A$2:$B$10,2,FALSE)",ledger.selectMenu));
+    sheet.getRange(lastRow, 7).setFormula(Utilities.formatString("VLOOKUP(\"%s\",'メニュー'!$A$2:$B$50,2,FALSE)",ledger.selectMenu));
     sheet.getRange(lastRow, 8).setFormula(Utilities.formatString("VLOOKUP(\"%s\",'コース'!$B$2:$F$50,2,FALSE)",ledger.selectCourse));
     sheet.getRange(lastRow, 9).setValue(ledger.status);
     sheet.getRange(lastRow, 11).setValue(Moment.moment().format("YYYY/MM/DD HH:mm:ss"));

@@ -18,7 +18,7 @@ function getConfirmReserved(ledger) {
         "data": Utilities.formatString("{\"message\":\"%s\",\"yn\":\"n\",\"date\":\"%s\",\"from\":\"%s\",\"to\":\"%s\"}",MSG_CMD30_CONFIRM_LAST,ledger.reserveDate,ledger.reserveFromTime,ledger.reserveToTime)
       }
     ],
-    "text": Utilities.formatString("[最終確認]\n\n【日時】\n%s %s～%s\n\n予約確定しますがよろしいですか？",ledger.reserveDate,ledger.reserveFromTime,ledger.reserveToTime)
+    "text": Utilities.formatString("【Step3】最終確認をさせて頂きます♪\n\n【日時】\n%s %s～%s\n\n予約を確定してもいいですか？",ledger.reserveDate,ledger.reserveFromTime,ledger.reserveToTime)
   }
 };
 }
@@ -45,7 +45,7 @@ function getConfirmCancel(ledger) {
         "data": Utilities.formatString("{\"message\":\"%s\",\"yn\":\"n\",\"ledgerNo\":%s}",MSG_CMD50_CONFIRM_LAST, ledger.ledgerNo)
       }
     ],
-    "text": Utilities.formatString("[最終確認]\n\n【日時】\n%s %s～%s\n\n予約をキャンセルしますか？",ledger.reserveDate,ledger.reserveFromTime,ledger.reserveToTime)
+    "text": Utilities.formatString("【Step3】最終確認をさせて頂きます♪\n\n【日時】\n%s %s～%s\n\n予約をキャンセルしてもいいですか？",ledger.reserveDate,ledger.reserveFromTime,ledger.reserveToTime)
   }
 };
 }

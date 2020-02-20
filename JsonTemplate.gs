@@ -103,6 +103,8 @@ function getMenuObject() {
   return {
     "menuCd":"",
     "menuName":"",
-    "description":""
+    "courseName":"",
+    "description":"",
+    "amount":"",
   };
 }

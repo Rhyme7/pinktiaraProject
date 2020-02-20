@@ -8,11 +8,11 @@ function getTopMenu() {
     "type": "carousel",
     "contents": [
       //おすすめメニュー
-      getOtherMenuTop(),
+      getMenuTop("M3","おすすめメニュー","https://drive.google.com/uc?export=view&id=1VVG2kpXAZuTpe_8Bv8UwXfH2-jnwrWG8"),
       //パーマメニュー
-      getPermMenuTop(),
+      getMenuTop("M2","まつ毛パーマメニュー","https://drive.google.com/uc?export=view&id=11e3yF2IoD1oso3u0iG8oNJp0foXIzsb8"),
       //エクステメニュー
-      getExteMenuTop()
+      getMenuTop("M1","まつ毛エクステメニュー","https://www.dollylash.co.jp/wp/wp-content/themes/dollylash201711/img/ph_25.jpg")     
     ]
   }
 };

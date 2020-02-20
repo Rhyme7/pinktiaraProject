@@ -111,6 +111,7 @@ function addDetailContent2() {
   return {
     "type": "text",
     "text": "",
+    "flex": 0,        
     "margin": "sm",
     "weight": "bold"
   };
