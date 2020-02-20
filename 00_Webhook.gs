@@ -1,3 +1,5 @@
+//ログ出力
+var isLogging = getPropertyValue("LOG_OUT_YN");
 //スプレッドシート
 var spreadsheet = SpreadsheetApp.openById(getPropertyValue("SPREADSHEET"));
 //LINEアクセストークン
@@ -108,7 +110,7 @@ function doPost(e) {
   if(!hasMsg){
     
     //不正メッセージ
-    Logger.log("登録メッセージなし：" + message);
+    Log("登録メッセージなし：: [%1]", message);
     returnmessage = {
       "type" : "text",
       "text" : "送信されたメッセージは不正です"
