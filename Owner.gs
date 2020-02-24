@@ -8,9 +8,9 @@ function setOwnerReserved(){
   var list=[x,x,x,x,x];
   
   //カレンダ登録：type => regist
-  //var count=updateGoogleCalendarFromLedger("regist",list); 
+  var count=updateGoogleCalendarFromLedger("regist",list); 
   //カレンダ削除：type => delete
-  var count=updateGoogleCalendarFromLedger("delete",list);
+  //var count=updateGoogleCalendarFromLedger("delete",list);
   
   Logger.log(Utilities.formatString("%s件更新しました", count));  
 }
@@ -27,7 +27,7 @@ function updateGoogleCalendarFromLedger(type,list){
     i=i+1;
     if(type==="regist"){
       //カレンダ登録
-      var evtId=createEvent("【予約不可】",ledger.reserveDate,ledger.reserveFromTime,ledger.reserveToTime);
+      var evtId=createEvent("【予約不可】",ledger);
       ledger.googleCalendarId=evtId;
       ledger.status="予約不可";
 
