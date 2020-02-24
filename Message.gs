@@ -16,6 +16,8 @@ var MSG_CMD50_CANCEL_RESERVED="50_予約キャンセル";
 var MSG_CMD50_CANCEL_SELECTED="50_キャンセル選択";
 var MSG_CMD50_CONFIRM_LAST="50_キャンセル最終確認";
 
+var MSG_REPLY_HELP="ヘルプ";
+
 //アプリメッセージ登録
 var msgList = [
   //初回登録
@@ -32,6 +34,9 @@ var msgList = [
   
   //予約キャンセル
   ,[MSG_CMD50_CANCEL_RESERVED],[MSG_CMD50_CANCEL_SELECTED],[MSG_CMD50_CONFIRM_LAST]
+  
+  //その他(応答メッセージなど)
+  ,[MSG_REPLY_HELP]
 ];
 
 //不正なメッセージはエラー

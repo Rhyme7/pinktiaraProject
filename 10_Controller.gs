@@ -159,10 +159,7 @@ function Controller(message, data, customer) {
     }
     
   }else{
-    returnmessage = {
-      "type" : "text",
-      "text" : "不正なメッセージです：" + message
-    };
+    return;
   };
  
   return returnmessage;
