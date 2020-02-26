@@ -18,7 +18,7 @@ function Controller(message, data, customer) {
     
     switch (message) {
       case MSG_CMD20_GET_MENU:
-        returnmessage = getTopMenu();
+        returnmessage = getTopMenu(cId);
         return returnmessage;
       case MSG_CMD20_EXT_MENU:
         returnmessage = getMenuDetail("M1","まつ毛エクステメニュー","https://www.dollylash.co.jp/wp/wp-content/themes/dollylash201711/img/ph_25.jpg");
