@@ -43,6 +43,8 @@ function getMenuTop(menuCd,menuName,image) {
     m=MSG_CMD20_PRM_MENU;
   }else if(menuCd === "M3"){
     m=MSG_CMD20_OTR_MENU;
+  }else if(menuCd === "M99"){
+    m=MSG_CMD20_MNG_MENU;
   }
   
   var data={

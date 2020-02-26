@@ -24,11 +24,14 @@ function Controller(message, data, customer) {
         returnmessage = getMenuDetail("M1","まつ毛エクステメニュー","https://www.dollylash.co.jp/wp/wp-content/themes/dollylash201711/img/ph_25.jpg");
         break
       case MSG_CMD20_PRM_MENU:
-        returnmessage = getMenuDetail("M2","まつ毛パーマメニュー","https://www.dollylash.co.jp/wp/wp-content/themes/dollylash201711/img/ph_26.jpg");
+        returnmessage = getMenuDetail("M2","まつ毛パーマメニュー","https://drive.google.com/uc?export=view&id=11e3yF2IoD1oso3u0iG8oNJp0foXIzsb8");
         break
       case MSG_CMD20_OTR_MENU:
-        returnmessage = getMenuDetail("M3","おすすめメニュー","https://www.dollylash.co.jp/wp/wp-content/themes/dollylash201711/img/ph_9.jpg");
+        returnmessage = getMenuDetail("M3","おすすめメニュー","https://drive.google.com/uc?export=view&id=1VVG2kpXAZuTpe_8Bv8UwXfH2-jnwrWG8");
         break
+      case MSG_CMD20_MNG_MENU:
+        returnmessage = getMenuDetail("M99","管理者メニュー","https://drive.google.com/uc?export=view&id=1_HlZXax1b1dwpU-U60I0_Qs2_9si72Oz");
+        break        
       default:
         returnmessage = {
           "type" : "text",
