@@ -12,7 +12,7 @@ function getTopMenu(cId) {
 
 
   if(cId==="U5b22be70377b7e9aca78f8a6ae04a6e5" || cId==="U66425016b131cd4d943d3699d53791fc"){
-    menu.contents.contents.push(getMenuTop("M99","管理者メニュー",""));
+    menu.contents.contents.push(getMenuTop("M99","管理者メニュー","https://drive.google.com/uc?export=view&id=1_HlZXax1b1dwpU-U60I0_Qs2_9si72Oz"));
   }
 
   menu.contents.contents.push(getMenuTop("M3","おすすめメニュー","https://drive.google.com/uc?export=view&id=1VVG2kpXAZuTpe_8Bv8UwXfH2-jnwrWG8"));
@@ -26,6 +26,6 @@ function getTopMenu(cId) {
 
 /////テストコード
 function getTopMenuTest(){
-  var ret= getTopMenu("U66425016b131cd4d943d3699d53791fc");
+  var ret= getTopMenu("U5b22be70377b7e9aca78f8a6ae04a6e5");
   Logger.log(ret);
 }
