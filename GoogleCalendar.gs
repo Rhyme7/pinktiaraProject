@@ -1,7 +1,7 @@
 //Googleカレンダへ登録
-function createEvent(customerName, ledger) {
+function createEvent(customerName, phone, ledger) {
   var calendar = CalendarApp.getDefaultCalendar();
-  var title = Utilities.formatString("%s様（%s : %s : %s分 : %s円）",customerName,ledger.selectMenu,ledger.selectCourse,ledger.duration,ledger.amount);
+  var title = Utilities.formatString("%s様[%s]（%s : %s : %s分 : %s円）",customerName, phone,ledger.selectMenu,ledger.selectCourse,ledger.duration,ledger.amount);
   var startTime = new Date(ledger.reserveDate+" "+ledger.reserveFromTime);
   var endTime = new Date(ledger.reserveDate+" "+ledger.reserveToTime);
   
@@ -43,7 +43,7 @@ function createEventTest(){
   ledger.selectCourse="P1-2";
   ledger.status="予約済み";
   
-  var evtId=createEvent("大脇 剣吾",ledger)
+  var evtId=createEvent("大脇 剣吾","",ledger)
   Logger.log("イベントID：%s", evtId);
 }
 
