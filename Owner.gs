@@ -1,14 +1,17 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //// 管理機能
-//// 用途：オーナー予定ありの場合、予約受付不可とする
-//// 方法：予め台帳に対象日付、開始時間、終了時間を設定し、お客さまIDやGoogleカレンダIDは未入力で以下メソッドを実行
+//// 用途①：オーナー予定ありの場合、予約受付不可（ステータス：予約不可）とする
+//// 用途②：何らかの理由でカレンダが欠損した場合、台帳からカレンダを登録する（ステータス：予約済み）
 
 function setOwnerReserved(){
   //指定した台帳Noリストを指定
-  var list=[x,x,x,x,x];
+  var list=[82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99];
   
   //カレンダ登録：type => regist
   var count=updateGoogleCalendarFromLedger("regist",list); 
+  //↑
+  //どちらか一方をコメントはずして実行ください
+  //↓
   //カレンダ削除：type => delete
   //var count=updateGoogleCalendarFromLedger("delete",list);
   
@@ -27,9 +30,9 @@ function updateGoogleCalendarFromLedger(type,list){
     i=i+1;
     if(type==="regist"){
       //カレンダ登録
-      var evtId=createEvent("【予約不可】",ledger);
+      var evtId=createEvent("【予約不可】","",ledger);
       ledger.googleCalendarId=evtId;
-      ledger.status="予約不可";
+      ledger.status="予約不可";　//予約不可 or 予約済み
 
     }else if(type==="delete"){
       //カレンダ削除

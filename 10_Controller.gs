@@ -6,6 +6,7 @@ function Controller(message, data, customer) {
   
   var cId=customer.customerId;
   var cName=customer.lastName+customer.firstName;
+  var cPhone=customer.phone;
   
   if(message.indexOf("10_") === 0){
   //登録メッセージ
@@ -83,7 +84,7 @@ function Controller(message, data, customer) {
           var registed=readLedgerWithNo(ledgerno);
           
           //カレンダ登録
-          var evtId=createEvent(cName,registed);
+          var evtId=createEvent(cName,cPhone,registed);
           ledger.googleCalendarId=evtId;
           //台帳更新
           UpdateLedger(ledger);
