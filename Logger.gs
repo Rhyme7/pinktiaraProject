@@ -21,7 +21,12 @@ function Log(target,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10) {
   sheet.appendRow([now + "," + rep]);
 }
 
+function LogClear(){
+ var sheet = spreadsheet.getSheetByName('log');
+ sheet.clear();
+}
 
 function LogTest(){
  Log("eventType : [%1], replyToken : [%2], sourceType : [%3], userid : [%4], message : [%5], data : [%6], dayString : [%7]", "a","b","c","d","e","f","g");
 }
+

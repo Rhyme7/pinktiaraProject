@@ -1,5 +1,6 @@
 //空き状況リスト
 function getAvailabilityList(ledger) {
+      Log("getAvailabilityList : [%1]", "past1");
   
   //予約日から営業時間を取得
   var businessTime=getBusinessTime(ledger.reserveDate);
@@ -9,6 +10,7 @@ function getAvailabilityList(ledger) {
   //予約可能リストを作成(30分刻み)
   var reservableList=new Array();
   var base=Moment.moment(ledger.reserveDate + " " + businessTime.from);
+      Log("getAvailabilityList : [%1]", "past2");
 
   for(var i = 1; i <= 50; i++) {
     var time=getBusinessTimeObject();
@@ -25,11 +27,13 @@ function getAvailabilityList(ledger) {
     }
   }
 //  Logger.log(JSON.stringify(reservableList));
-  
+      Log("getAvailabilityList : [%1]", "past3");
+
   //予約済み一覧を取得
   var reservedList=readLedgerWithDate(ledger.reserveDate);
   reservedList.sort(function(a,b){return(new Date(a.reserveDate+" "+a.reserveFromTime) - new Date(b.reserveDate+" "+b.reserveFromTime));});
 //  Logger.log(JSON.stringify(reservedList));
+      Log("getAvailabilityList : [%1]", "past4");
   
   //空き時間リスト作成
   var availabilityList=new Array();
@@ -53,7 +57,10 @@ function getAvailabilityList(ledger) {
         var time=getBusinessTimeObject();
         time.from=Moment.moment(available.from).format("HH:mm");
         time.to=Moment.moment(available.to).format("HH:mm");
-        availabilityList.push(time);       
+        availabilityList.push(time);  
+      
+      Log("getAvailabilityList : [%1]", JSON.stringify(time));
+
     }});
   
   if(availabilityList.length===0){
@@ -140,9 +147,9 @@ function bodyForAvailable() {
 function getAvailabilityListTest(){
   var ledger=getLedgerObject();
 
-  ledger.customerId="test2"
-  ledger.date=Moment.moment("2020/02/17 2:34:50").format("YYYY/MM/DD HH:mm:ss");
-  ledger.reserveDate=Moment.moment("2020/02/24").format("YYYY/MM/DD");
+  ledger.customerId="U5b22be70377b7e9aca78f8a6ae04a6e5"
+  ledger.date=Moment.moment("2020/10/25 20:51:50").format("YYYY/MM/DD HH:mm:ss");
+  ledger.reserveDate=Moment.moment("2020/10/30").format("YYYY/MM/DD");
   ledger.selectMenu="M2";
   ledger.selectCourse="P1-1";
   
