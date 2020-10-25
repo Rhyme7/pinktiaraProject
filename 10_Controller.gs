@@ -119,41 +119,49 @@ function Controller(message, data, customer) {
       case MSG_CMD50_CANCEL_RESERVED:
         returnmessage = getCancelList(cId,cName);
         return returnmessage;
-        
+        break;
       case MSG_CMD50_CANCEL_SELECTED:
         //カルテ書き込み
         var carteData = getCarteObjectWithValue("キャンセル受付",Moment.moment().format("YYYY/MM/DD HH:mm:ss"),cId,cName);
         var ledger=readLedgerWithNo(data.ledgerNo);
         carteData.ledger=ledger;
         carteData.ledger.status="キャンセル";
+        Log("MSG_CMD50_CANCEL_SELECTED1 : [%1]", JSON.stringify(carteData));
         UpdateCarte(carteData);
         
         returnmessage = getConfirmCancel(ledger);
-        break
-        
+        return returnmessage;
+        break;
       case MSG_CMD50_CONFIRM_LAST:
-        
+        Log("MSG_CMD50_CONFIRM_LAST1 : [%1]", cId);
         //カルテ呼び出し
         var carte=readCarte("キャンセル受付", cId);
+        Log("MSG_CMD50_CONFIRM_LAST2 : [%1]", JSON.stringify(carte));
         //指定された台帳呼び出し
         var ledger=readLedgerWithNo(data.ledgerNo);
+        Log("MSG_CMD50_CONFIRM_LAST3 : [%1]", JSON.stringify(ledger));
         carte.ledger=ledger;
         carte.ledger.status="キャンセル";
         
         if(data.yn === "y"){
           returnmessage = getResultCanceled(carte);
+          Log("MSG_CMD50_CONFIRM_LAST4 : [%1]", JSON.stringify(carte));
 
           //カレンダ更新
           updateEvent(carte.ledger.googleCalendarId);
           carte.resultCalendar=true;
+          Log("MSG_CMD50_CONFIRM_LAST5 : [%1]", JSON.stringify(carte));
           UpdateCarte(carte);
-          
+          Log("MSG_CMD50_CONFIRM_LAST6 : [%1]", JSON.stringify(carte));
+
           //台帳更新
           UpdateLedger(carte.ledger);
           carte.resultLastConfirm=true;
           UpdateCarte(carte);
+          Log("MSG_CMD50_CONFIRM_LAST7 : [%1]", JSON.stringify(carte));
+          
         }
-        break        
+        break;
       default:
         returnmessage = {
           "type" : "text",

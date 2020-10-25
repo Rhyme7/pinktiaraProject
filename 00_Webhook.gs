@@ -1,5 +1,6 @@
 //ログ出力
-var isLogging = getPropertyValue("LOG_OUT_YN");
+//var isLogging = getPropertyValue("LOG_OUT_YN");
+var isLogging = "y";
 //スプレッドシート
 var spreadsheet = SpreadsheetApp.openById(getPropertyValue("SPREADSHEET"));
 //LINEアクセストークン
